@@ -15,12 +15,12 @@ namespace ECommerceWebSite
         protected void Page_Load(object sender, EventArgs e)
         {
            
-                if (!IsPostBack)
-                {
-                    BindUser();
-                }
+ if (!IsPostBack)
+            {
+                BindUser();
+            }
            
-
+           
 
         }
         private void BindUser()
