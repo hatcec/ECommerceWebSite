@@ -15,14 +15,9 @@ namespace ECommerceWebSite
         public static String ConnectString = ConfigurationManager.ConnectionStrings["MyWebsiteDB"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["AdminUser"] != null)
-            {
+           
                 BindOrderCart();
-            }
-            else
-            {
-                Response.Redirect("~/SıgnIn.aspx");
-            }
+          
             
         }
         private void BindOrderCart()
