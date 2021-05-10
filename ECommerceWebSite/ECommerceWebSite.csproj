@@ -79,7 +79,6 @@
     <Content Include="AddBrand.aspx" />
     <Content Include="AddCategory.aspx" />
     <Content Include="AddProduct.aspx" />
-    <Content Include="AddSubCategory.aspx" />
     <Content Include="AdminCart.aspx" />
     <Content Include="AdminCartDetail.aspx" />
     <Content Include="AdminChart.aspx" />
