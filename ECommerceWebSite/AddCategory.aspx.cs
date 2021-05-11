@@ -33,8 +33,6 @@ namespace ECommerceWebSite
                 Response.Write("<script> alert ('Kategori Eklendi'); </script>");
                 TxtCategoryName.Text = string.Empty;
                 con.Close();
-                //LblMsg.Text = "Kayıt İşlemi Başarılı";
-                //LblMsg.ForeColor = System.Drawing.Color.Green;
                 TxtCategoryName.Focus();
                 BindCategoryRepeater();
                 Session["CategoryName"] = TxtCategoryName.Text;

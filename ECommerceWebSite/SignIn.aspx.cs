@@ -31,7 +31,7 @@ namespace ECommerceWebSite
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["MyWebsiteDB"].ConnectionString))
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Tbl_Users WHERE UserName=@UserName and Password=@Pass", con);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Tbl_Users WHERE UserName=@UserName and Password=@Pass and UserType='user'", con);
                 cmd.Parameters.AddWithValue("@UserName", TxtUserName.Text);
                 cmd.Parameters.AddWithValue("@Pass", TxtPass.Text);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
@@ -75,7 +75,7 @@ namespace ECommerceWebSite
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["MyWebsiteDB"].ConnectionString))
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Tbl_Users WHERE UserName=@UserName and Password=@Pass", con);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Tbl_Users WHERE UserName=@UserName and Password=@Pass and UserType='admin'", con);
                 cmd.Parameters.AddWithValue("@UserName", TxtUserName.Text);
                 cmd.Parameters.AddWithValue("@Pass", TxtPass.Text);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
@@ -105,7 +105,7 @@ namespace ECommerceWebSite
                     if (UType == "admin")
                     {
                         Session["AdminName"] = TxtUserName.Text;
-                        Response.Redirect("~/AdminHome.aspx");
+                        Response.Redirect("~/AdminChart.aspx");
                     }
 
 

@@ -6,7 +6,6 @@
 
     <section id="cart_items">
         <div class="container">
-
             <!--/breadcrums-->
             <div class="row">  	
 	    		<div class="col-sm-8">
@@ -43,18 +42,12 @@
                         <div class="shopper-info">
                             <div class="form-one">
 
-                             <%--   
-                               
-                                
-                               
-                                <asp:Button ID="Button1" runat="server" Text="Ödeme yap" OnClick="Button1_Click" />--%>
                             </div>
                         </div>
 
                     </div>
 
                 </div>
-
 
 
                 <div class="table-responsive cart_info">
@@ -87,9 +80,6 @@
                                             <span class="proPrice"><%# Eval("ProductPrice") %></span>
                                         </td>
 
-
-
-
                                     </tr>
                                 </ItemTemplate>
                             </asp:Repeater>
@@ -115,7 +105,6 @@
 
 
     </section>
-    <!--/#cart_items-->
 
 
 </asp:Content>

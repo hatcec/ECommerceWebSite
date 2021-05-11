@@ -18,7 +18,11 @@ namespace ECommerceWebSite
         {
 
         }
-
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+            string searchText = TxtSearch.Text.Trim();
+            Response.Redirect("~/Search.aspx?ürün=" + searchText);
+        }
         protected void BtnREsetPass_Click(object sender, EventArgs e)
         {
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["MyWebsiteDB"].ConnectionString))
@@ -65,52 +69,7 @@ namespace ECommerceWebSite
 
 
 
-                    //    //send reset Link via email
-                    //    String ToEmailAdress = dt.Rows[0][3].ToString();
-                    //    String UserName = dt.Rows[0][1].ToString();
-                    //    String EmailBody ="Merhaba, "+UserName+ "<br/><b/> Linke Tıklayarak Şifrenizi Sıfırlayınız<b/>https://localhost:44304/NewPassword.aspx?Id="+mGUID;
-                    //    MailMessage PassMail = new MailMessage("htccnbz06@gmail.com", ToEmailAdress);
-                    //    PassMail.Body = EmailBody;
-                    //    PassMail.IsBodyHtml = true;
-                    //    PassMail.Subject = "Şifre Sıfırlama";
-                    //    using(SmtpClient client=new SmtpClient())
-                    //    {
-                    //        client.EnableSsl = true;
-                    //        client.UseDefaultCredentials = false;
-                    //        client.Credentials = new NetworkCredential("htccnbz06@gmail.com", "aditi@12345");
-                    //        client.Host = "smtp.gmail.com";
-                    //        client.Port = 587;
-                    //        client.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    //        client.Send(PassMail);
-                    //    }
-
-
-
-
-                    //    //SmtpClient SMTP = new SmtpClient("smtp.gmail.com",587);
-                    //    //SMTP.Credentials = new NetworkCredential()
-                    //    //{
-                    //    //    UserName = "EmailAdres@gmail.com",
-                    //    //    Password = "yeniSifre"
-                    //    //};
-                    //    //SMTP.EnableSsl = true;
-                    //    //SMTP.Send(PassMail);
-
-
-
-                    //    //---------------------
-
-                    //    LblResetPassMsg.Text = "Sıfırlama Linki Mail Adresinize Gönderildi, Lütfen Kontrol Ediniz";
-                    //    LblResetPassMsg.ForeColor = System.Drawing.Color.Green;
-                    //    TxtEmail.Text = string.Empty;
-                    //}
-                    //else
-                    //{
-                    //    LblResetPassMsg.Text = "birşeyler ters gitti.";
-                    //    LblResetPassMsg.ForeColor = System.Drawing.Color.Red;
-                    //    TxtEmail.Text = string.Empty;
-                    //    TxtEmail.Focus();
-                    //}
+                   
                 }
             }
         }

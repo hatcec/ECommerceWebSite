@@ -14,13 +14,13 @@ namespace ECommerceWebSite
         public static String ConnectString = ConfigurationManager.ConnectionStrings["MyWebsiteDB"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-           
- if (!IsPostBack)
+
+            if (!IsPostBack)
             {
                 BindUser();
             }
-           
-           
+
+
 
         }
         private void BindUser()

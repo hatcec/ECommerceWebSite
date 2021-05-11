@@ -13,7 +13,7 @@
                     <asp:Label ID="Label1" CssClass="col-md-2 control-label" runat="server" Text="Kategori Adı:"></asp:Label>
                     <div class="col-md-3">
                         <asp:TextBox ID="TxtCategoryName" CssClass="form-control" runat="server"></asp:TextBox>
-                       <%--   <asp:RequiredFieldValidator ID="RequiredFieldValidatorCategoryName" runat="server" CssClass="text-danger" ErrorMessage="Kategori Adı Giriniz" ControlToValidate="TxtCategoryName" ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                    
                     </div>
                 </div>
             </div>

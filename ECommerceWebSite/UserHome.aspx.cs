@@ -15,16 +15,17 @@ namespace ECommerceWebSite
         public static String ConnectString = ConfigurationManager.ConnectionStrings["MyWebsiteDB"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindOrderCart();
+           
             if (IsPostBack)
             {
                 string searchText = TxtSearch.Text.Trim();
                 Response.Redirect("~/Search.aspx?product=" + searchText);
             }
 
-            BindCartNumber();
+           
             if (Session["UserName"] != null)
             {
+                BindOrderCart();
                 LblSuccess.Text = "Giriş Yapıldı, Hoşgeldiniz " + Session["UserName"].ToString();
                 BtnLogOut.Visible = true;
                 BtnLogIn.Visible = false;
@@ -34,7 +35,7 @@ namespace ECommerceWebSite
             {
                 BtnLogIn.Visible = true;
                 BtnLogOut.Visible = false;
-               // Response.Redirect("~/Default.aspx");
+                Response.Redirect("~/SignIn.aspx");
             }
         }
 
@@ -54,21 +55,7 @@ namespace ECommerceWebSite
         }
 
 
-        private void BindCartNumber()
-        {
-            if (Request.Cookies["CartPID"] != null)
-            {
-                string CookiePID = Request.Cookies["CartPID"].Value.Split('=')[1];
-                string[] ProductArray = CookiePID.Split(',');
-                int ProductCount = ProductArray.Length;
-                ProductCount1.InnerText = ProductCount.ToString();
-            }
-            else
-            {
-                ProductCount1.InnerText = 0.ToString();
-            }
-        }
-
+      
         
         protected void BtnLogOut_Click1(object sender, EventArgs e)
         {

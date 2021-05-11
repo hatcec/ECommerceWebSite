@@ -4,5 +4,6 @@
 <br />
 <br />
 <br />
-    <h2>Welcome Admin!</h2>
+    <h2>
+    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></h2>
 </asp:Content>

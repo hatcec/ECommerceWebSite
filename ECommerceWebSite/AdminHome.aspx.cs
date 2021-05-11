@@ -13,7 +13,13 @@ namespace ECommerceWebSite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+            if (Session["AdminName"] != null) {
+            Label1.Text = "Admin  Sayfasına HoşGeldiniz: " + Session["AdminName"].ToString();
+            }
+            else
+            {
+                Response.Redirect("~/SignIn.aspx");
+            }
         }
     }
 }

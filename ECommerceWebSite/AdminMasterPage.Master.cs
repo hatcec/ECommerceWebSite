@@ -21,16 +21,16 @@ namespace ECommerceWebSite
             cmdd.ExecuteNonQuery();
 
             con.Close();
-            if (Session["AdminUser"] != null)
+            if (Session["AdminName"] != null)
             {
-                
-                BtnLogin.Visible = false;
+
+                Login.Visible = false;
                BtnAdminLogOut.Visible = true;
             }
             else
             {
 
-                BtnLogin.Visible = true;
+                Login.Visible = true;
                 BtnAdminLogOut.Visible = false;
                 // Response.Redirect("~/Default.aspx");
             }
@@ -44,23 +44,15 @@ namespace ECommerceWebSite
             Response.Redirect("~/AdminSearch.aspx?ürün=" + searchText);
         }
 
-        protected void BtnLogin_Click(object sender, EventArgs e)
-        {
-            if (Session["AdminUser"] == null)
-            {
-                BtnLogin.Visible = true;
-                BtnAdminLogOut.Visible = false;
-                Response.Redirect("~/SignIn.aspx");
-            }
-        }
+   
 
         protected void BtnAdminLogOut_Click(object sender, EventArgs e)
         {
-            if (Session["AdminUser"] != null)
+            if (Session["AdminName"] != null)
             {
-                BtnLogin.Visible = false;
+                Login.Visible = false;
                 BtnAdminLogOut.Visible = true;
-                Session["AdminUser"] = null;
+                Session["AdminName"] = null;
                 Response.Redirect("~/Products.aspx");
             }
         }

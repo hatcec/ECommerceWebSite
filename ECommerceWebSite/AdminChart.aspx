@@ -12,89 +12,6 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
  <script> $('#container').load('/AdminChart.aspx') </script>
 
- <%--   <script>
-        $(document).ready(function () {
-            $('#container').DataTable();
-
-        });
- </script>
-
-   
-      <script>
-          
-        let createchart = () => {
-            $.ajax({
-                url: "WebService.asmx/Siparis2",
-                dataType: "json",
-                type: "POST",
-                contentType: "application/json; charset=utf-8",
-                success: function (data) {//diziler
-                    let arrprice = [];//satış dizisi
-                    let arrcatday = [];//kat gün dizi
-                    let icount = 0;//sayaç
-                    $.each(data.d, function () {
-                        arrprice.push([data.d[icount].Saleprice]);
-                        arrcatday.push([data.d[icount].Day]);
-                        icount += 1;
-
-                    });
-                    var container = document.createElement('div');
-                    document.body.appendChild(container);
-
-                    window.chart = new Highcharts.Chart({
-                        chart: {
-                            renderTo: container,
-                            height: 400,
-                            width: 600,
-                            type: 'column'
-                        },
-                  
-                        xAsis: {
-                            categories: arrcatday
-                        },
-                        yAxis: {        // the 'y' axis or 'value' axis.
-                           // min: 0, max: 80,
-                            title: { text: 'Fiyat' },
-                            allowDecimals: true,
-                            plotLines: [{
-                                value: 35,
-                                color: '#1464F4',
-                                dashStyle: 'longdashdot',       // default value is solid.
-                                width: 2,
-                                //label: {
-                                //    text: 'Min Target (35)'
-                                //}
-                            }]
-                        },
-                        title: {
-                            text: 'Günlere Göre Satış Tutarları'
-                        },
-                        series: [
-                            {
-                                
-                                name: 'gün',
-                                data: arrprice
-                            }
-                        ],
-                        colors: ['rgb(102,203,22)']
-
-                       
-
-                    });
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    let error = jQuery.parseJSON(XMLHttpRequest.responseText);
-                    console.log("Error message: " + error.Message);
-                }
-            });
-        }
-
-        createchart();
-
-
-
-
-      </script>--%>
     <div id="chart" style="width: 900px; height: 500px;">
 
 
@@ -142,12 +59,12 @@
 </div>
      <div id = "SepetDurum" style = "width: 500px; height: 300px;"> 
          <script>
-// VISUALIZATION API AND THE PIE CHART PACKAGE.
+
     google.load("visualization", "1", { packages: ["corechart"] });
     google.setOnLoadCallback(createPIE);
 
     function createPIE() {
-        // SET CHART OPTIONS.
+    
         var options = {
             title: 'Sepetin Siparişe Çevrilme Oranı',
             colors: ['#888', 'orange'],
@@ -175,10 +92,10 @@
              
                 var chart = new google.visualization.PieChart(document.getElementById('SepetDurum'));
 
-                chart.draw(figures, options);      // DRAW GRAPH WITH THE DATA AND OPTIONS.
+                chart.draw(figures, options);      
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert('Got an Error');
+                alert('Hata Oluştu');
             }
         });
     }

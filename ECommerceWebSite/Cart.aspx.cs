@@ -57,9 +57,7 @@ namespace ECommerceWebSite
         }
         private void BindProductCart()
         {
-            SepetDetay sepetDetay = new SepetDetay();
             Sepet sepet = new Sepet();
-            Product product = new Product();
             SqlConnection con = new SqlConnection(ConnectString);
             con.Open();
             SqlCommand command = new SqlCommand("select * from Sepet where KullaniciId=@ui and Durum=@d", con);
@@ -134,7 +132,7 @@ namespace ECommerceWebSite
             SqlCommand sqlcommand = new SqlCommand("update Sepet set SepetTutari=@ürünyeni where KullaniciId=@ui and Durum=@d", con);
             sqlcommand.Parameters.AddWithValue("@ui", Convert.ToInt32(Session["UserID"]));
             sqlcommand.Parameters.AddWithValue("@d", false);
-            sqlcommand.Parameters.AddWithValue("@ürünyeni", ara);
+            sqlcommand.Parameters.AddWithValue("@ürünyeni",Convert.ToDecimal( ara));
             sqlcommand.ExecuteNonQuery();
            
             SqlCommand cmd = new SqlCommand("delete  from SepetDetay where UrunId=@ürünid and SepetId=@sepetid", con);

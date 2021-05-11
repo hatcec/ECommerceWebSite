@@ -14,7 +14,6 @@
                         <td class="description">Ürün</td>
                         <td class="price">Adet Fiyatı</td>
 
-
                         <td></td>
                     </tr>
                 </thead>
@@ -65,7 +64,5 @@
         </div>
     
     </section>
-    <!--/#cart_items-->
-
 
 </asp:Content>

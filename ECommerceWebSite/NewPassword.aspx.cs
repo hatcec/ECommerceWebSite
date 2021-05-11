@@ -42,14 +42,14 @@ namespace ECommerceWebSite
                     }
                 }
 
-            
 
 
-             else
-            {
-                Response.Redirect("~/Default.aspx");
+
+                else
+                {
+                    Response.Redirect("~/Products.aspx");
+                }
             }
-        }
             if (!IsPostBack)
             {
                 if (dt.Rows.Count != 0)
@@ -61,33 +61,38 @@ namespace ECommerceWebSite
                     BtnREsetPass.Visible = true;
                 }
                 else
-{
-    LblMsg.Text = "tekrar deneyin";
-    LblMsg.ForeColor = System.Drawing.Color.Red;
-}
+                {
+                    LblMsg.Text = "tekrar deneyin";
+                    LblMsg.ForeColor = System.Drawing.Color.Red;
+                }
             }
 
         }
 
         protected void BtnREsetPass_Click(object sender, EventArgs e)
-{
-    if (TxtNewPass.Text != "" && TxTConfirmNewPass.Text != "" && TxtNewPass.Text == TxTConfirmNewPass.Text)
-    {
-        using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["MyWebsiteDB"].ConnectionString))
         {
-            con.Open();
-            SqlCommand cmd = new SqlCommand("Update Tbl_Users set Password=@Pass where Uid=@Uid", con);
-            cmd.Parameters.AddWithValue("@Pass", TxtNewPass.Text);
-            cmd.Parameters.AddWithValue("@Uid", Uid);
-            cmd.ExecuteNonQuery();
+            if (TxtNewPass.Text != "" && TxTConfirmNewPass.Text != "" && TxtNewPass.Text == TxTConfirmNewPass.Text)
+            {
+                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["MyWebsiteDB"].ConnectionString))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("Update Tbl_Users set Password=@Pass where Uid=@Uid", con);
+                    cmd.Parameters.AddWithValue("@Pass", TxtNewPass.Text);
+                    cmd.Parameters.AddWithValue("@Uid", Uid);
+                    cmd.ExecuteNonQuery();
 
-            SqlCommand cmd2 = new SqlCommand("delete from ForgotPass where Uid='" + Uid + "'", con);
-            cmd2.ExecuteNonQuery();
-            Response.Write("<script>alert('Şifre Yenilendi');</script>");
-            Response.Redirect("~/SignIn.aspx");
+                    SqlCommand cmd2 = new SqlCommand("delete from ForgotPass where Uid='" + Uid + "'", con);
+                    cmd2.ExecuteNonQuery();
+                    Response.Write("<script>alert('Şifre Yenilendi');</script>");
+                    Response.Redirect("~/SignIn.aspx");
+                }
+            }
+
         }
-    }
-
-}
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+            string searchText = TxtSearch.Text.Trim();
+            Response.Redirect("~/Search.aspx?ürün=" + searchText);
+        }
     }
 }

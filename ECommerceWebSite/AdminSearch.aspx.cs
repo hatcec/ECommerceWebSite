@@ -41,9 +41,6 @@ namespace ECommerceWebSite
             }
         }
 
-        protected void BtnRemoveCard_Click(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }
